@@ -1,0 +1,27 @@
+{
+  "name": "palette-picker",
+  "version": "1.0.0",
+  "description": "An application that will allow user to choose a color palette and save it to a server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamArturo/palette-picker.git"
+  },
+  "author": "Camilo Snapp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CamArturo/palette-picker/issues"
+  },
+  "homepage": "https://github.com/CamArturo/palette-picker#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.1",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "nodemon": "^1.17.5"
+  }
+}
