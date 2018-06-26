@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(morgan('tiny'));
+app.use(bodyParser.json());
 
 const port = process.env.PORT || 3000;
 app.set('port', process.env.PORT || 3000);

@@ -33,3 +33,8 @@ const setCSS = (colorPalette) => {
 };
 
 $('.generator-btn').on('click', generateFiveColors);
+// $('.card-container').on('click', '.lock-btn', toggleLock)
+
+$('.lock-btn').click(function () {
+  $(this).toggleClass('open');
+});
