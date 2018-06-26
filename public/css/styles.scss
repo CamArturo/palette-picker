@@ -1,5 +1,75 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
+/*==========  General  ==========*/
+
+html {
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Mukta Vaani', sans-serif;
+}
+
+hr.styled {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.btn {
+  width: auto;
+  padding: 8px 16px;
+  height: fit-content;
+  background-color: #bd1550;
+  color: #fff;
+  text-align: center;
+  display: inline-block;
+  border: 0;
+  line-height: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all .1s ease;
+}
+
+/*==========  Header  ==========*/
+header {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 10px 0 rgba(0, 64, 128, .1);
+  img {
+    padding: 1rem 0 1rem 2rem;
+  }
+  .generator-btn {
+    @extend .btn;
+    margin-right: 2rem;
+  }
+}
+
+/*==========  Main Content  ==========*/
+
+.main-content {
+  background-color: #f9f9f9;
+  height: 100vh;
+  padding-top: 100px;
+  margin-top: 9px;
+  h2 {
+    font-family: Lato, sans-serif;
+    //background-color: #f9f9f9;
+    background-color: #fbfbfb;
+    text-align: center;
+    padding-bottom: 50px;
+  }
+}
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1200px) {

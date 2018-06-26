@@ -15,8 +15,8 @@ const generateFiveColors = () => {
     const hexColor = generateColor();
     colorPalette.push(hexColor);
   }
-  console.log(colorPalette)
+  console.log(colorPalette);
   return colorPalette;
 };
 
-$('.generator').on('click', generateFiveColors);
+$('.generator-btn').on('click', generateFiveColors);
