@@ -6,6 +6,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+@import '../node_modules/normalize.css/normalize.css';
 
 /*==========  General  ==========*/
 
@@ -25,7 +26,8 @@ hr.styled {
 
 .btn {
   width: auto;
-  padding: 8px 16px;
+  padding: 10px 16px;
+  font-size: 14px;
   height: fit-content;
   background-color: #bd1550;
   color: #fff;
@@ -76,18 +78,38 @@ header {
   display: flex;
   justify-content: center;
   padding: 70px 0;
-  .card {
-    height: 200px;
-    width: 200px;
-    border: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-  }
-  .card-bottom {
-    color: #fff;
-    text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.6);
+  .card-container {
+    border: 1px solid #b5b4b4;
+    border-radius: 5px;
+    margin: 0 1rem;
+    .card {
+      height: 200px;
+      width: 200px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+    .card-bottom {
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.6);
+    }
+    img {
+      margin: 10px auto;
+      display: block;
+    }
+    button {
+      width: 48px;
+      height: 48px;
+      border: none;
+      margin: 10px auto;
+      display: block;
+      background-image: url("../assets/lock-closed-48.png");
+      &.open {
+        background-image: url("../assets/lock-open-48.png");
+      }
+    }
   }
 }
 

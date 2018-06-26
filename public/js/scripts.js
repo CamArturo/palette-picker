@@ -19,6 +19,8 @@ const generateFiveColors = () => {
   setCSS(colorPalette);
 };
 
+
+
 const setCSS = (colorPalette) => {
   $('.card-1').css('background-color', colorPalette[0]);
   $(`<p>${colorPalette[0]}</p>`).appendTo( $( ".card-1 .card-bottom" ) );
@@ -33,3 +35,6 @@ const setCSS = (colorPalette) => {
 };
 
 $('.generator-btn').on('click', generateFiveColors);
+$('.lock-btn').on('click', () => {
+  $(".lock-btn").toggleClass('open');
+});
