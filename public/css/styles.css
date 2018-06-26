@@ -62,7 +62,7 @@ header {
 .color-palette-container {
   display: flex;
   justify-content: center;
-  padding: 70px 0; }
+  padding: 40px 0; }
   .color-palette-container .card-container {
     border: 1px solid #b5b4b4;
     border-radius: 5px;
@@ -81,6 +81,8 @@ header {
     .color-palette-container .card-container img {
       margin: 10px auto;
       display: block; }
+    .color-palette-container .card-container .lock-btn {
+      background-color: #f9f9f9; }
     .color-palette-container .card-container button {
       width: 48px;
       height: 48px;

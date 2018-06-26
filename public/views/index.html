@@ -53,7 +53,25 @@
     </article>
   </section>
   <hr class="styled">
+  <form action="/new-project" method="post">
+    <div>
+      <label for="project-name">Create a new project:</label>
+      <input type="text" id="project-name" name="project_name" placeholder="New Project Name">
+      <button>Save Project</button>
+    </div>
+  </form>
+  <hr class="styled">
+  <form action="/add-palette" method="post">
+    <div>
+      <!--<label for="add-palette-name">Create a new project:</label>-->
+      <select name="list-projects" id="list-projects"></select>
+      <input type="text" id="add-palette-name" name="add_palette_name" placeholder="Palette Name">
+      <button>Save Palette</button>
+    </div>
+  </form>
 </section>
+
+
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <script src="/js/jquery.min.js"></script>
