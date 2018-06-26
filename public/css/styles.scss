@@ -12,6 +12,11 @@ html {
 
 html {
   font-family: 'Lato', sans-serif;
+  background-color: #f9f9f9;
+}
+
+body {
+  margin: 0;
 }
 
 p {
@@ -28,7 +33,6 @@ hr.styled {
   width: auto;
   padding: 10px 16px;
   font-size: 14px;
-  height: fit-content;
   background-color: #bd1550;
   color: #fff;
   text-align: center;
@@ -39,6 +43,15 @@ hr.styled {
   cursor: pointer;
   border-radius: 2px;
   transition: all .1s ease;
+  &:hover {
+    background-color: #761338;
+  }
+}
+
+.input {
+  padding: 7px 16px;
+  font-size: 1rem;
+  margin: 0 1rem;
 }
 
 /*==========  Header  ==========*/
@@ -48,12 +61,9 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 5px 10px 0 rgba(0, 64, 128, .1);
+  background-color: #fff;
   img {
-    padding: 1rem 0 1rem 2rem;
-  }
-  .generator-btn {
-    @extend .btn;
-    margin-right: 2rem;
+    padding: 1rem 0 2rem 1rem;
   }
 }
 
@@ -71,6 +81,11 @@ header {
     background-color: #fbfbfb;
     text-align: center;
     padding-bottom: 50px;
+  }
+  .generator-btn {
+    @extend .btn;
+    margin: 1rem auto;
+    display: block;
   }
 }
 
@@ -113,6 +128,47 @@ header {
         background-image: url("../assets/lock-open-48.png");
       }
     }
+  }
+}
+
+.new-project-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  label {
+    font-size: 1.2rem;
+  }
+  button {
+    @extend .btn;
+  }
+  input {
+    @extend .input;
+  }
+}
+
+.add-project-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  label {
+    font-size: 1.2rem;
+  }
+  button {
+    @extend .btn;
+  }
+  input {
+    @extend .input;
+  }
+  select {
+    display: inline-block;
+    border: 2px solid #bbb;
+    padding: 4px 3px 3px 5px;
+    width: auto;
+    margin: 0;
+    font: inherit;
+    outline:none;
+    line-height: 1.2;
+    background: #f9f9f9;
   }
 }
 

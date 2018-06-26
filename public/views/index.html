@@ -11,7 +11,7 @@
 <body>
 <header>
   <img src="../assets/palette-picker-logo-260-100.png" alt="">
-  <button class="generator-btn">Generate New Palette</button>
+  <!--<button class="generator-btn">Generate New Palette</button>-->
 </header>
 <section class="main-content">
   <h2>Palette Picker helps you generate color palettes and store them</h2>
@@ -52,25 +52,25 @@
       <button class="lock-btn open"></button>
     </article>
   </section>
+  <button class="generator-btn">Generate New Palette</button>
   <hr class="styled">
-  <form action="/new-project" method="post">
-    <div>
+  <section class="new-project-container">
+    <form action="/new-project" method="post">
       <label for="project-name">Create a new project:</label>
       <input type="text" id="project-name" name="project_name" placeholder="New Project Name">
       <button>Save Project</button>
-    </div>
-  </form>
+    </form>
+  </section>
   <hr class="styled">
-  <form action="/add-palette" method="post">
-    <div>
-      <!--<label for="add-palette-name">Create a new project:</label>-->
+  <section class="add-project-container">
+    <form action="/add-palette" method="post">
+      <label for="add-palette-name">Save Palette:</label>
       <select name="list-projects" id="list-projects"></select>
       <input type="text" id="add-palette-name" name="add_palette_name" placeholder="Palette Name">
       <button>Save Palette</button>
-    </div>
-  </form>
+    </form>
+  </section>
 </section>
-
 
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
