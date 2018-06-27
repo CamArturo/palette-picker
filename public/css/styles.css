@@ -24,7 +24,7 @@ hr.styled {
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
 
-.btn, .main-content .generator-btn, .new-project-container button, .add-project-container button {
+.btn, .main-content .generator-btn, .new-project-container button, .add-project-container button, .palettes-container .palette .project-title {
   width: auto;
   padding: 10px 16px;
   font-size: 14px;
@@ -38,7 +38,7 @@ hr.styled {
   cursor: pointer;
   border-radius: 2px;
   transition: all .1s ease; }
-  .btn:hover, .main-content .generator-btn:hover, .new-project-container button:hover, .add-project-container button:hover {
+  .btn:hover, .main-content .generator-btn:hover, .new-project-container button:hover, .add-project-container button:hover, .palettes-container .palette .project-title:hover {
     background-color: #761338; }
 
 .input, .new-project-container input, .add-project-container input {
@@ -131,6 +131,11 @@ header {
     outline: none;
     line-height: 1.2;
     background: #f9f9f9; }
+
+.palettes-container {
+  margin: 3rem; }
+  .palettes-container .palette .project-title {
+    padding: 1rem 1.4rem; }
 
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */

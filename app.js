@@ -21,13 +21,13 @@ app.locals.projects = [
 
 ];
 
-app.get('/api/projects', (request, response) => {
+app.get('/api/v1/projects', (request, response) => {
   const projects = app.locals.projects;
 
   response.json({ projects });
 });
 
-app.post('/api/create-project', (request, response) => {
+app.post('/api/v1/create-project', (request, response) => {
   const {projectName} = request.body;
 
   app.locals.projects.push(projectName);

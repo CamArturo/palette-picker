@@ -178,6 +178,16 @@ header {
   }
 }
 
+.palettes-container {
+  margin: 3rem;
+  .palette {
+    .project-title {
+      @extend .btn;
+      padding: 1rem 1.4rem;
+    }
+  }
+}
+
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1200px) {
 
