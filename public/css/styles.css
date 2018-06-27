@@ -1,5 +1,4 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
-@import url(../node_modules/normalize.css/normalize.css);
 html {
   box-sizing: border-box; }
 
@@ -16,6 +15,9 @@ body {
 
 p {
   font-family: 'Mukta Vaani', sans-serif; }
+
+label {
+  padding-top: 5px; }
 
 hr.styled {
   border: 0;
@@ -53,12 +55,11 @@ header {
   box-shadow: 0 5px 10px 0 rgba(0, 64, 128, 0.1);
   background-color: #fff; }
   header img {
-    padding: 1rem 0 2rem 1rem; }
+    padding: 1rem 0 1rem 2rem; }
 
 /*==========  Main Content  ==========*/
 .main-content {
   background-color: #f9f9f9;
-  height: 100vh;
   min-height: 100%;
   padding-top: 50px;
   margin-top: 9px; }
@@ -68,8 +69,10 @@ header {
     text-align: center;
     padding-bottom: 50px; }
   .main-content .generator-btn {
-    margin: 1rem auto;
-    display: block; }
+    margin: 40px auto;
+    display: block;
+    padding: 1rem 1.2rem;
+    font-size: 1rem; }
 
 .color-palette-container {
   display: flex;

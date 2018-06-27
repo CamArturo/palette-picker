@@ -6,7 +6,7 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
-@import '../node_modules/normalize.css/normalize.css';
+//@import '../node_modules/normalize.css/normalize.css';
 
 /*==========  General  ==========*/
 
@@ -21,6 +21,10 @@ body {
 
 p {
   font-family: 'Mukta Vaani', sans-serif;
+}
+
+label {
+  padding-top: 5px;
 }
 
 hr.styled {
@@ -63,7 +67,7 @@ header {
   box-shadow: 0 5px 10px 0 rgba(0, 64, 128, .1);
   background-color: #fff;
   img {
-    padding: 1rem 0 2rem 1rem;
+    padding: 1rem 0 1rem 2rem;
   }
 }
 
@@ -71,7 +75,7 @@ header {
 
 .main-content {
   background-color: #f9f9f9;
-  height: 100vh;
+  //height: 100vh;
   min-height: 100%;
   padding-top: 50px;
   margin-top: 9px;
@@ -84,8 +88,10 @@ header {
   }
   .generator-btn {
     @extend .btn;
-    margin: 1rem auto;
+    margin: 40px auto;
     display: block;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
   }
 }
 
