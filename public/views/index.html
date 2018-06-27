@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Camilo's Palette Picker</title>
-  <!--<link rel="stylesheet" href="../css/normalize.css">-->
+  <link rel="stylesheet" href="../css/normalize.css">
   <link rel="stylesheet" href="../css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Lato|Mukta+Vaani" rel="stylesheet">
   <link rel="shortcut icon" type="image/png" href="../assets/favicon-32x32.png" />
@@ -11,7 +11,7 @@
 <body>
 <header>
   <img src="../assets/palette-picker-logo-260-100.png" alt="">
-  <button class="generator-btn">Generate New Palette</button>
+  <!--<button class="generator-btn">Generate New Palette</button>-->
 </header>
 <section class="main-content">
   <h2>Palette Picker helps you generate color palettes and store them</h2>
@@ -52,26 +52,46 @@
       <button class="lock-btn open"></button>
     </article>
   </section>
+  <button class="generator-btn">Generate New Palette</button>
   <hr class="styled">
-  <form action="/new-project" method="post">
-    <div>
-      <label for="project-name">Create a new project:</label>
-      <input type="text" id="project-name" name="project_name" placeholder="New Project Name">
-      <button>Save Project</button>
-    </div>
-  </form>
+  <section class="new-project-container">
+    <!--<form action="/create-project" method="post">-->
+    <!--<label for="project-name">Create a new project:</label>-->
+    <!--<input type="text" id="project-name" name="project_name" placeholder="New Project Name">-->
+    <!--<button type="submit">Create Project</button>-->
+    <!--</form>-->
+    <label for="project-name">Create a new project:</label>
+    <input type="text" id="project-name" name="project_name" placeholder="New Project Name">
+    <button class="create-project">Create Project</button>
+  </section>
   <hr class="styled">
-  <form action="/add-palette" method="post">
-    <div>
-      <!--<label for="add-palette-name">Create a new project:</label>-->
-      <select name="list-projects" id="list-projects"></select>
+  <section class="add-project-container">
+    <form action="/add-palette" method="post">
+      <label for="add-palette-name">Save Palette:</label>
+      <select name="list-projects" id="list-projects">
+        <option value="none" selected>--Please choose a project--</option>
+      </select>
       <input type="text" id="add-palette-name" name="add_palette_name" placeholder="Palette Name">
-      <button>Save Palette</button>
-    </div>
-  </form>
+      <button type="submit">Save Palette</button>
+    </form>
+  </section>
+  <hr class="styled">
+  <section class="palette">
+    <section class="project-title">
+      <h3>Project 1</h3>
+    </section>
+    <section class="project-body">
+      <section class="palette-title">Warm Combo</section>
+      <div class="palette-color"></div>
+      <div class="palette-color"></div>
+      <div class="palette-color"></div>
+      <div class="palette-color"></div>
+      <div class="palette-color"></div>
+      <section class="trash-can"></section>
+    </section>
+
+  </section>
 </section>
-
-
 
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
 <script src="/js/jquery.min.js"></script>

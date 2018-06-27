@@ -1,5 +1,4 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
-@import url(../node_modules/normalize.css/normalize.css);
 html {
   box-sizing: border-box; }
 
@@ -8,21 +7,27 @@ html {
 
 /*==========  General  ==========*/
 html {
-  font-family: 'Lato', sans-serif; }
+  font-family: 'Lato', sans-serif;
+  background-color: #f9f9f9; }
+
+body {
+  margin: 0; }
 
 p {
   font-family: 'Mukta Vaani', sans-serif; }
+
+label {
+  padding-top: 5px; }
 
 hr.styled {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); }
 
-.btn, header .generator-btn {
+.btn, .main-content .generator-btn, .new-project-container button, .add-project-container button {
   width: auto;
   padding: 10px 16px;
   font-size: 14px;
-  height: fit-content;
   background-color: #bd1550;
   color: #fff;
   text-align: center;
@@ -33,6 +38,13 @@ hr.styled {
   cursor: pointer;
   border-radius: 2px;
   transition: all .1s ease; }
+  .btn:hover, .main-content .generator-btn:hover, .new-project-container button:hover, .add-project-container button:hover {
+    background-color: #761338; }
+
+.input, .new-project-container input, .add-project-container input {
+  padding: 7px 16px;
+  font-size: 1rem;
+  margin: 0 1rem; }
 
 /*==========  Header  ==========*/
 header {
@@ -40,16 +52,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 5px 10px 0 rgba(0, 64, 128, 0.1); }
+  box-shadow: 0 5px 10px 0 rgba(0, 64, 128, 0.1);
+  background-color: #fff; }
   header img {
     padding: 1rem 0 1rem 2rem; }
-  header .generator-btn {
-    margin-right: 2rem; }
 
 /*==========  Main Content  ==========*/
 .main-content {
   background-color: #f9f9f9;
-  height: 100vh;
   min-height: 100%;
   padding-top: 50px;
   margin-top: 9px; }
@@ -58,6 +68,11 @@ header {
     background-color: #fbfbfb;
     text-align: center;
     padding-bottom: 50px; }
+  .main-content .generator-btn {
+    margin: 40px auto;
+    display: block;
+    padding: 1rem 1.2rem;
+    font-size: 1rem; }
 
 .color-palette-container {
   display: flex;
@@ -92,6 +107,30 @@ header {
       background-image: url("../assets/lock-closed-48.png"); }
       .color-palette-container .card-container button.open {
         background-image: url("../assets/lock-open-48.png"); }
+
+.new-project-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0; }
+  .new-project-container label {
+    font-size: 1.2rem; }
+
+.add-project-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0; }
+  .add-project-container label {
+    font-size: 1.2rem; }
+  .add-project-container select {
+    display: inline-block;
+    border: 2px solid #bbb;
+    padding: 4px 3px 3px 5px;
+    width: auto;
+    margin: 0;
+    font: inherit;
+    outline: none;
+    line-height: 1.2;
+    background: #f9f9f9; }
 
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */

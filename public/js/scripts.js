@@ -21,20 +21,36 @@ const generateFiveColors = () => {
 
 const setCSS = (colorPalette) => {
   $('.card-1').css('background-color', colorPalette[0]);
-  $(`<p>${colorPalette[0]}</p>`).appendTo( $( ".card-1 .card-bottom" ) );
+  $(`<p>${colorPalette[0]}</p>`).appendTo($('.card-1 .card-bottom'));
   $('.card-2').css('background-color', colorPalette[1]);
-  $(`<p>${colorPalette[1]}</p>`).appendTo( $( ".card-2 .card-bottom" ) );
+  $(`<p>${colorPalette[1]}</p>`).appendTo($('.card-2 .card-bottom'));
   $('.card-3').css('background-color', colorPalette[2]);
-  $(`<p>${colorPalette[2]}</p>`).appendTo( $( ".card-3 .card-bottom" ) );
+  $(`<p>${colorPalette[2]}</p>`).appendTo($('.card-3 .card-bottom'));
   $('.card-4').css('background-color', colorPalette[3]);
-  $(`<p>${colorPalette[3]}</p>`).appendTo( $( ".card-4 .card-bottom" ) );
+  $(`<p>${colorPalette[3]}</p>`).appendTo($('.card-4 .card-bottom'));
   $('.card-5').css('background-color', colorPalette[4]);
-  $(`<p>${colorPalette[4]}</p>`).appendTo( $( ".card-5 .card-bottom" ) );
+  $(`<p>${colorPalette[4]}</p>`).appendTo($('.card-5 .card-bottom'));
+};
+
+const createProject = () => {
+  const projectName = $('#project-name').val();
+
+  fetch('/api/create-project', {
+    method: 'POST',
+    body: JSON.stringify({
+      projectName: projectName,
+    }),
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
 };
 
 $('.generator-btn').on('click', generateFiveColors);
-// $('.card-container').on('click', '.lock-btn', toggleLock)
-
 $('.lock-btn').click(function () {
   $(this).toggleClass('open');
 });
+$('.create-project').on('click', createProject);
