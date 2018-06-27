@@ -35,10 +35,10 @@ const setCSS = (colorPalette) => {
 const createProject = () => {
   const projectName = $('#project-name').val();
 
-  fetch('/api/create-project', {
+  fetch('/api/v1/projects', {
     method: 'POST',
     body: JSON.stringify({
-      projectName: projectName,
+      project_name: projectName
     }),
     headers: {
       'content-type': 'application/json'
@@ -53,4 +53,16 @@ $('.generator-btn').on('click', generateFiveColors);
 $('.lock-btn').click(function () {
   $(this).toggleClass('open');
 });
+
 $('.create-project').on('click', createProject);
+
+$(function() {
+  fetch('/api/v1/projects', {
+    method: 'GET',
+  })
+    .then(response => response.json())
+    .then(response => response.forEach(project => {
+      $('#list-projects').append(`<option ${project.project_name} value= selected>${project.project_name}</option>`);
+    }))
+    .catch(error => console.log(error));
+});
