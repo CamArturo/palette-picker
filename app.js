@@ -44,6 +44,18 @@ app.post('/api/v1/projects', (request, response) => {
     });
 });
 
+app.post('/api/v1/palettes', (request, response) => {
+  const paletteInfo = request.body;
+
+  database('palettes').insert(paletteInfo, 'id')
+    .then(projectId => {
+      response.status(201).json({id: projectId[0]})
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 app.get('/', (req, res) => {
   // __dirname = location of the current executable
   res.sendFile(path.join(__dirname, '/public/views/index.html'));

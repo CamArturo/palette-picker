@@ -96,12 +96,40 @@ const createProject = () => {
     .catch(error => console.log(error));
 };
 
+const getHexColors = () => {
+  const finalPalette = [];
+  for (let i = 1; i <= 5; i++) {
+    const hexColor = $(`.card-${i} .card-bottom p`).text();
+    finalPalette.push(hexColor);
+  }
+  savePalette(finalPalette);
+};
 
-$('.generator-btn').on('click', generateColors);
-$('.lock-btn').click(function () {
-  $(this).toggleClass('open');
-});
-$('.create-project').on('click', createProject);
+const getProjectName = () => {
+  const projectName = $( "#list-projects option:selected" ).text();
+  return projectName;
+};
+
+const savePalette = (finalPalette) => {
+  fetch('/api/v1/palettes', {
+    method: 'POST',
+    body: JSON.stringify({
+      palette_name: getProjectName(),
+      color1: finalPalette[0],
+      color2: finalPalette[1],
+      color3: finalPalette[2],
+      color4: finalPalette[3],
+      color5: finalPalette[4],
+      project_id: 1
+    }),
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+};
 
 $(function () {
   fetch('/api/v1/projects', {
@@ -113,3 +141,10 @@ $(function () {
     }))
     .catch(error => console.log(error));
 });
+
+$('.generator-btn').on('click', generateColors);
+$('.lock-btn').click(function () {
+  $(this).toggleClass('open');
+});
+$('.create-project').on('click', createProject);
+$('#save-palette-btn').on('click', getHexColors);
