@@ -62,7 +62,7 @@ header {
   background-color: #f9f9f9;
   min-height: 100%;
   padding-top: 50px;
-  margin-top: 9px; }
+  margin: 9px 0 100px 0; }
   .main-content h2 {
     font-family: Lato, sans-serif;
     background-color: #fbfbfb;
@@ -127,7 +127,7 @@ header {
     border: 2px solid #bbb;
     padding: 4px 3px 3px 5px;
     width: auto;
-    margin: 0;
+    margin: 0 0 0 1rem;
     font: inherit;
     outline: none;
     line-height: 1.2;
@@ -135,8 +135,11 @@ header {
 
 .palettes-container {
   margin: 3rem; }
-  .palettes-container .palette .project-title {
-    padding: 1rem 1.4rem; }
+  .palettes-container .palette {
+    width: auto;
+    display: inline-block; }
+    .palettes-container .palette .palette-title {
+      margin: 2rem; }
 
 /* Large Devices, Wide Screens */
 /* Medium Devices, Desktops */
