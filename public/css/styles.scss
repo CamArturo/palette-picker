@@ -129,6 +129,7 @@ header {
       border: none;
       margin: 10px auto;
       display: block;
+      outline: none;
       background-image: url("../assets/lock-closed-48.png");
       &.open {
         background-image: url("../assets/lock-open-48.png");
@@ -175,6 +176,16 @@ header {
     outline:none;
     line-height: 1.2;
     background: #f9f9f9;
+  }
+}
+
+.palettes-container {
+  margin: 3rem;
+  .palette {
+    .project-title {
+      @extend .btn;
+      padding: 1rem 1.4rem;
+    }
   }
 }
 

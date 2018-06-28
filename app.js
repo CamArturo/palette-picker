@@ -16,23 +16,32 @@ app.use(express.static(path.join(__dirname, '/public/')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/normalize')));
 
-app.locals.title = 'Palette Picker';
-app.locals.projects = [
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment];
+const database = require('knex')(configuration);
 
-];
+app.get('/api/v1/projects', (request, response) => {
 
-app.get('/api/projects', (request, response) => {
-  const projects = app.locals.projects;
+  database('projects').select()
+    .then((projects) => {
+      response.status(200).json(projects);
+    })
+    .catch((error) => {
+      response.status(500).json({error});
+    });
 
-  response.json({ projects });
 });
 
-app.post('/api/create-project', (request, response) => {
-  const {projectName} = request.body;
+app.post('/api/v1/projects', (request, response) => {
+  const name = request.body;
 
-  app.locals.projects.push(projectName);
-
-  response.status(201).json({colorPalette: projectName});
+  database('projects').insert(name, 'id')
+    .then(projectId => {
+      response.status(201).json({id: projectId[0]})
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
 });
 
 app.get('/', (req, res) => {
