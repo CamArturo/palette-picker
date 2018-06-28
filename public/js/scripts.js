@@ -38,39 +38,44 @@ const generateColors = () => {
 };
 
 const grabColor = () => {
-  let color = colorPalette
+  let color = colorPalette.shift();
+  return color;
 };
 
-const setCSS = (colorPalette) => {
-
-  if (!$('card-1 button').hasClass('open')) {
+const setCSS = () => {
+  if ($('.card-1 button').hasClass('open')) {
     $('.card-1 .card-bottom p').remove();
-    $('.card-1 .card').css('background-color', colorPalette[0]);
-    $(`<p>${colorPalette[0]}</p>`).appendTo($('.card-1 .card-bottom'));
+    const color = grabColor();
+    $('.card-1 .card').css('background-color', color);
+    $(`<p>${color}</p>`).appendTo($('.card-1 .card-bottom'));
   }
 
-  if (!$('card-2 button').hasClass('open')) {
+  if ($('.card-2 button').hasClass('open')) {
     $('.card-2 .card-bottom p').remove();
-    $('.card-2 .card').css('background-color', colorPalette[1]);
-    $(`<p>${colorPalette[1]}</p>`).appendTo($('.card-2 .card-bottom'));
+    const color = grabColor();
+    $('.card-2 .card').css('background-color', color);
+    $(`<p>${color}</p>`).appendTo($('.card-2 .card-bottom'));
   }
 
-  if (!$('card-3 button').hasClass('open')) {
+  if ($('.card-3 button').hasClass('open')) {
     $('.card-3 .card-bottom p').remove();
-    $('.card-3 .card').css('background-color', colorPalette[2]);
-    $(`<p>${colorPalette[2]}</p>`).appendTo($('.card-3 .card-bottom'));
+    const color = grabColor();
+    $('.card-3 .card').css('background-color', color);
+    $(`<p>${color}</p>`).appendTo($('.card-3 .card-bottom'));
   }
 
-  if (!$('card-4 button').hasClass('open')) {
+  if ($('.card-4 button').hasClass('open')) {
     $('.card-4 .card-bottom p').remove();
-    $('.card-4 .card').css('background-color', colorPalette[3]);
-    $(`<p>${colorPalette[3]}</p>`).appendTo($('.card-4 .card-bottom'));
+    const color = grabColor();
+    $('.card-4 .card').css('background-color', color);
+    $(`<p>${color}</p>`).appendTo($('.card-4 .card-bottom'));
   }
 
-  if (!$('card-5 button').hasClass('open')) {
+  if ($('.card-5 button').hasClass('open')) {
     $('.card-5 .card-bottom p').remove();
-    $('.card-5 .card').css('background-color', colorPalette[4]);
-    $(`<p>${colorPalette[4]}</p>`).appendTo($('.card-5 .card-bottom'));
+    const color = grabColor();
+    $('.card-5 .card').css('background-color', color);
+    $(`<p>${color}</p>`).appendTo($('.card-5 .card-bottom'));
   }
 };
 
@@ -91,14 +96,11 @@ const createProject = () => {
     .catch(error => console.log(error));
 };
 
-// generateColors
-//
 
 $('.generator-btn').on('click', generateColors);
 $('.lock-btn').click(function () {
   $(this).toggleClass('open');
 });
-
 $('.create-project').on('click', createProject);
 
 $(function () {
