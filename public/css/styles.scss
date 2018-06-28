@@ -129,6 +129,7 @@ header {
       border: none;
       margin: 10px auto;
       display: block;
+      outline: none;
       background-image: url("../assets/lock-closed-48.png");
       &.open {
         background-image: url("../assets/lock-open-48.png");

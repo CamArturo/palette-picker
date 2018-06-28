@@ -104,6 +104,7 @@ header {
       border: none;
       margin: 10px auto;
       display: block;
+      outline: none;
       background-image: url("../assets/lock-closed-48.png"); }
       .color-palette-container .card-container button.open {
         background-image: url("../assets/lock-open-48.png"); }
