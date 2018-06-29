@@ -189,8 +189,7 @@ header {
     display: inline-block;
     .project-title {
       @extend .btn;
-      //padding: 1rem 1.4rem;
-      padding: 4px 16px;
+      padding: 0 2rem;
     }
     .project-body {
       padding: 1rem;
@@ -216,6 +215,16 @@ header {
     height: 70px;
     color: #fff;
     text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.7);
+  }
+  .delete-palette {
+    width: 48px;
+    height: 48px;
+    border: none;
+    margin-left: 1rem;
+    background-color: #f9f9f9;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-image: url("../assets/trash-can-48.png");
   }
 }
 

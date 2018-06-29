@@ -151,7 +151,7 @@ $(function () {
             <section class="palette-color color3" style="background-color: ${project.color3}"><p>${project.color3}</p></section>
             <section class="palette-color color4" style="background-color: ${project.color4}"><p>${project.color4}</p></section>
             <section class="palette-color color5" style="background-color: ${project.color5}"><p>${project.color5}</p></section>
-            <section class="delete-project"></section>
+            <button class="delete-palette"></button>
           </section>
         </section>
       </section>  
