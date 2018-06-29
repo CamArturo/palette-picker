@@ -78,7 +78,7 @@ header {
   //height: 100vh;
   min-height: 100%;
   padding-top: 50px;
-  margin-top: 9px;
+  margin: 9px 0 100px 0;
   h2 {
     font-family: Lato, sans-serif;
     //background-color: #f9f9f9;
@@ -171,7 +171,7 @@ header {
     border: 2px solid #bbb;
     padding: 4px 3px 3px 5px;
     width: auto;
-    margin: 0;
+    margin: 0 0 0 1rem;
     font: inherit;
     outline:none;
     line-height: 1.2;
@@ -182,9 +182,14 @@ header {
 .palettes-container {
   margin: 3rem;
   .palette {
+    width: auto;
+    display: inline-block;
     .project-title {
       @extend .btn;
-      padding: 1rem 1.4rem;
+      //padding: 1rem 1.4rem;
+    }
+    .palette-title {
+      margin: 2rem;
     }
   }
 }

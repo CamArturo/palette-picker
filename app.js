@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 const port = process.env.PORT || 3000;
 app.set('port', process.env.PORT || 3000);
 
+// if (process.env.NODE_ENV !== 'test') {
+//   app.use(logger('dev'));
+// }
+
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/normalize')));
@@ -44,6 +48,18 @@ app.post('/api/v1/projects', (request, response) => {
     });
 });
 
+app.post('/api/v1/palettes', (request, response) => {
+  const paletteInfo = request.body;
+
+  database('palettes').insert(paletteInfo, 'id')
+    .then(projectId => {
+      response.status(201).json({id: projectId[0]})
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 app.get('/', (req, res) => {
   // __dirname = location of the current executable
   res.sendFile(path.join(__dirname, '/public/views/index.html'));
@@ -52,3 +68,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   debug(`listening on port ${(port)}`);
 });
+
+module.exports = app;

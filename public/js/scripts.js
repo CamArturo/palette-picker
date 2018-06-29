@@ -1,14 +1,3 @@
-// const generateColor = () => {
-//   let palette = '#';
-//   const chars = '0123456789ABCDEF';
-//
-//   for (let i = 0; i < 6; i++) {
-//     palette += chars.charAt(Math.floor(Math.random() * 16));
-//   }
-//
-//   return palette;
-// };
-
 let colorPalette = [];
 
 const removePreviousColorPalette = () => {
@@ -96,12 +85,42 @@ const createProject = () => {
     .catch(error => console.log(error));
 };
 
+const getHexColors = () => {
+  const finalPalette = [];
+  for (let i = 1; i <= 5; i++) {
+    const hexColor = $(`.card-${i} .card-bottom p`).text();
+    finalPalette.push(hexColor);
+  }
+  savePalette(finalPalette);
+};
 
-$('.generator-btn').on('click', generateColors);
-$('.lock-btn').click(function () {
-  $(this).toggleClass('open');
-});
-$('.create-project').on('click', createProject);
+const getProjectName = () => {
+  const projectName = $( "#list-projects option:selected" ).text();
+  return projectName;
+};
+
+const savePalette = (finalPalette) => {
+  const project_id = $('#list-projects').val();
+  console.log(project_id)
+  fetch('/api/v1/palettes', {
+    method: 'POST',
+    body: JSON.stringify({
+      palette_name: getProjectName(),
+      color1: finalPalette[0],
+      color2: finalPalette[1],
+      color3: finalPalette[2],
+      color4: finalPalette[3],
+      color5: finalPalette[4],
+      project_id: project_id
+    }),
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
+};
 
 $(function () {
   fetch('/api/v1/projects', {
@@ -109,7 +128,14 @@ $(function () {
   })
     .then(response => response.json())
     .then(response => response.forEach(project => {
-      $('#list-projects').append(`<option ${project.project_name} value= selected>${project.project_name}</option>`);
+      $('#list-projects').append(`<option ${project.project_name} value=${project.id}>${project.project_name}</option>`);
     }))
     .catch(error => console.log(error));
 });
+
+$('.generator-btn').on('click', generateColors);
+$('.lock-btn').click(function () {
+  $(this).toggleClass('open');
+});
+$('.create-project').on('click', createProject);
+$('#save-palette-btn').on('click', getHexColors);
