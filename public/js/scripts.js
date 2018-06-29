@@ -1,14 +1,3 @@
-// const generateColor = () => {
-//   let palette = '#';
-//   const chars = '0123456789ABCDEF';
-//
-//   for (let i = 0; i < 6; i++) {
-//     palette += chars.charAt(Math.floor(Math.random() * 16));
-//   }
-//
-//   return palette;
-// };
-
 let colorPalette = [];
 
 const removePreviousColorPalette = () => {
@@ -111,6 +100,8 @@ const getProjectName = () => {
 };
 
 const savePalette = (finalPalette) => {
+  const project_id = $('#list-projects').val();
+  console.log(project_id)
   fetch('/api/v1/palettes', {
     method: 'POST',
     body: JSON.stringify({
@@ -120,7 +111,7 @@ const savePalette = (finalPalette) => {
       color3: finalPalette[2],
       color4: finalPalette[3],
       color5: finalPalette[4],
-      project_id: 1
+      project_id: project_id
     }),
     headers: {
       'content-type': 'application/json'
@@ -137,7 +128,7 @@ $(function () {
   })
     .then(response => response.json())
     .then(response => response.forEach(project => {
-      $('#list-projects').append(`<option ${project.project_name} value= selected>${project.project_name}</option>`);
+      $('#list-projects').append(`<option ${project.project_name} value=${project.id}>${project.project_name}</option>`);
     }))
     .catch(error => console.log(error));
 });

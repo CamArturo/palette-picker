@@ -2,7 +2,7 @@
   "name": "palette-picker",
   "version": "1.0.0",
   "description": "An application that will allow user to choose a color palette and save it to a server",
-  "main": "index.js",
+  "main": "view/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "DEBUG=app nodemon app.js"
@@ -27,5 +27,10 @@
     "nodemon": "^1.17.5",
     "normalize.css": "^8.0.0",
     "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.2.0"
   }
 }

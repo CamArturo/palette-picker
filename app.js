@@ -12,6 +12,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 const port = process.env.PORT || 3000;
 app.set('port', process.env.PORT || 3000);
 
+// if (process.env.NODE_ENV !== 'test') {
+//   app.use(logger('dev'));
+// }
+
 app.use(express.static(path.join(__dirname, '/public/')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/normalize')));
@@ -64,3 +68,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   debug(`listening on port ${(port)}`);
 });
+
+module.exports = app;
