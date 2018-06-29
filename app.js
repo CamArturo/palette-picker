@@ -41,10 +41,10 @@ app.post('/api/v1/projects', (request, response) => {
 
   database('projects').insert(name, 'id')
     .then(projectId => {
-      response.status(201).json({id: projectId[0]})
+      response.status(201).json({id: projectId[0]});
     })
     .catch(error => {
-      response.status(500).json({ error });
+      response.status(500).json({error});
     });
 });
 
@@ -65,10 +65,10 @@ app.post('/api/v1/palettes', (request, response) => {
 
   database('palettes').insert(paletteInfo, 'id')
     .then(projectId => {
-      response.status(201).json({id: projectId[0]})
+      response.status(201).json({id: projectId[0]});
     })
     .catch(error => {
-      response.status(500).json({ error });
+      response.status(500).json({error});
     });
 });
 
