@@ -72,6 +72,19 @@ app.post('/api/v1/palettes', (request, response) => {
     });
 });
 
+app.delete('/api/v1/palettes/:paletteId', (request, response) => {
+
+  const id = request.params.paletteId;
+  database('palettes').where("id", id)
+    .del()
+    .then(palette => {
+      response.sendStatus(204);
+    })
+    .catch(error => {
+      response.status(500).json({error});
+    });
+});
+
 app.get('/', (req, res) => {
   // __dirname = location of the current executable
   res.sendFile(path.join(__dirname, '/public/views/index.html'));

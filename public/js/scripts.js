@@ -70,7 +70,6 @@ const setCSS = () => {
 
 const createProject = () => {
   const projectName = $('#project-name').val();
-  $('#list-projects').append(`<option ${project.project_name} value=${project.id}>${project.project_name}</option>`);
 
   fetch('/api/v1/projects', {
     method: 'POST',
@@ -82,7 +81,9 @@ const createProject = () => {
     }
   })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+      $('#list-projects').append(`<option value=${response.id}>${projectName}</option>`);
+    })
     .catch(error => console.log(error));
 };
 
@@ -122,6 +123,20 @@ const savePalette = (finalPalette) => {
     .catch(error => console.log(error));
 };
 
+const deletePalette = (id) => {
+
+  fetch(`/api/v1/palettes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+    // .then(response => response.json())
+    // .then(response => console.log(response))
+    // .catch(error => console.log(error));
+
+};
+
 $(function () {
   fetch('/api/v1/projects', {
     method: 'GET'
@@ -150,7 +165,7 @@ $(function () {
             <section class="palette-color color3" style="background-color:${project.color3}"><p>${project.color3}</p></section>
             <section class="palette-color color4" style="background-color:${project.color4}"><p>${project.color4}</p></section>
             <section class="palette-color color5" style="background-color:${project.color5}"><p>${project.color5}</p></section>
-            <button class="delete-palette"></button>
+            <button id="${project.id}" class="delete-palette"></button>
           </section>
         </section>
       </section>  
@@ -159,7 +174,13 @@ $(function () {
     .catch(error => console.log(error));
 });
 
+
 $('.generator-btn').on('click', generateColors);
+// $('.delete-project').on('click', deletePalette(event));
+$('.palettes-container').click(function (event) {
+  const id = event.target.id;
+  deletePalette(id);
+});
 $('.lock-btn').click(function () {
   $(this).toggleClass('open');
 });
