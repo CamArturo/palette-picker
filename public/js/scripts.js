@@ -131,6 +131,33 @@ $(function () {
       $('#list-projects').append(`<option ${project.project_name} value=${project.id}>${project.project_name}</option>`);
     }))
     .catch(error => console.log(error));
+
+  fetch('/api/v1/palettes', {
+    method: 'GET'
+  })
+    .then(response => response.json())
+    .then(response => response.forEach(project => {
+      console.log(project);
+      $('.palettes-container').append(`
+      <section class="palette">
+        <section class="project-title">
+          <h3>${project.palette_name}</h3>
+        </section>
+        <section class="project-body">
+          <section class="palette-color-container">
+          <p class="palette-title">${project.palette_name}</p>
+            <section class="palette-color color1" style="background-color: ${project.color1}"><p>${project.color1}</p></section>
+            <section class="palette-color color2" style="background-color: ${project.color2}"><p>${project.color2}</p></section>
+            <section class="palette-color color3" style="background-color: ${project.color3}"><p>${project.color3}</p></section>
+            <section class="palette-color color4" style="background-color: ${project.color4}"><p>${project.color4}</p></section>
+            <section class="palette-color color5" style="background-color: ${project.color5}"><p>${project.color5}</p></section>
+            <section class="delete-project"></section>
+          </section>
+        </section>
+      </section>  
+      `)
+    }))
+    .catch(error => console.log(error));
 });
 
 $('.generator-btn').on('click', generateColors);

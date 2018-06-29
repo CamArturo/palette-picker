@@ -48,6 +48,18 @@ app.post('/api/v1/projects', (request, response) => {
     });
 });
 
+app.get('/api/v1/palettes', (request, response) => {
+
+  database('palettes').select()
+    .then((palettes) => {
+      response.status(200).json(palettes);
+    })
+    .catch((error) => {
+      response.status(500).json({error});
+    });
+
+});
+
 app.post('/api/v1/palettes', (request, response) => {
   const paletteInfo = request.body;
 
