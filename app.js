@@ -72,14 +72,13 @@ app.post('/api/v1/palettes', (request, response) => {
     });
 });
 
-app.delete('/api/v1/palettes', (request, response) => {
+app.delete('/api/v1/palettes/:paletteId', (request, response) => {
 
-  const {id} = request.params;
-
-  database('palettes').where(id, 'id')
+  const id = request.params.paletteId;
+  database('palettes').where("id", id)
     .del()
     .then(palette => {
-      response.status(204).json(palette);
+      response.sendStatus(204);
     })
     .catch(error => {
       response.status(500).json({error});

@@ -190,6 +190,10 @@ header {
     .project-title {
       @extend .btn;
       padding: 0 2rem;
+      cursor: auto;
+      &:hover {
+        background-color: #bd1550;
+      }
     }
     .project-body {
       padding: 1rem;

@@ -142,7 +142,10 @@ header {
     width: 50%;
     display: inline-block; }
     .palettes-container .palette .project-title {
-      padding: 0 2rem; }
+      padding: 0 2rem;
+      cursor: auto; }
+      .palettes-container .palette .project-title:hover {
+        background-color: #bd1550; }
     .palettes-container .palette .project-body {
       padding: 1rem; }
     .palettes-container .palette .palette-title {

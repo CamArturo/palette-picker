@@ -124,20 +124,16 @@ const savePalette = (finalPalette) => {
 };
 
 const deletePalette = (id) => {
-  // hit endpoint : id
 
-  fetch(`/api/v1/palettes:${id}`, {
+  fetch(`/api/v1/palettes/${id}`, {
     method: 'DELETE',
-    // body: JSON.stringify({
-    //   project_id: id
-    // }),
     headers: {
       'content-type': 'application/json'
     }
   })
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(error => console.log(error));
+    // .then(response => response.json())
+    // .then(response => console.log(response))
+    // .catch(error => console.log(error));
 
 };
 
