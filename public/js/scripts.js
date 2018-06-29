@@ -70,6 +70,7 @@ const setCSS = () => {
 
 const createProject = () => {
   const projectName = $('#project-name').val();
+  $('#list-projects').append(`<option ${project.project_name} value=${project.id}>${project.project_name}</option>`);
 
   fetch('/api/v1/projects', {
     method: 'POST',
