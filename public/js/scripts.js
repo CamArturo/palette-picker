@@ -70,7 +70,6 @@ const setCSS = () => {
 
 const createProject = () => {
   const projectName = $('#project-name').val();
-  $('#list-projects').append(`<option ${project.project_name} value=${project.id}>${project.project_name}</option>`);
 
   fetch('/api/v1/projects', {
     method: 'POST',
@@ -82,7 +81,9 @@ const createProject = () => {
     }
   })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+      $('#list-projects').append(`<option value=${response.id}>${projectName}</option>`);
+    })
     .catch(error => console.log(error));
 };
 
