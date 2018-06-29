@@ -31,7 +31,7 @@ app.get('/api/v1/projects', (request, response) => {
       response.status(200).json(projects);
     })
     .catch((error) => {
-      response.status(500).json({errr});
+      response.status(500).json({error});
     });
 
 });
@@ -66,6 +66,20 @@ app.post('/api/v1/palettes', (request, response) => {
   database('palettes').insert(paletteInfo, 'id')
     .then(projectId => {
       response.status(201).json({id: projectId[0]});
+    })
+    .catch(error => {
+      response.status(500).json({error});
+    });
+});
+
+app.delete('/api/v1/palettes', (request, response) => {
+
+  const {id} = request.params;
+
+  database('palettes').where(id, 'id')
+    .del()
+    .then(palette => {
+      response.status(204).json(palette);
     })
     .catch(error => {
       response.status(500).json({error});
