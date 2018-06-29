@@ -40,13 +40,13 @@ describe('API Routes', () => {
   //   done();
   // });
 
-  beforeEach(function(done) {
+  beforeEach(function (done) {
     knex.migrate.rollback()
-      .then(function() {
+      .then(function () {
         knex.migrate.latest()
-          .then(function() {
+          .then(function () {
             return knex.seed.run()
-              .then(function() {
+              .then(function () {
                 done();
               });
           });
@@ -60,15 +60,30 @@ describe('API Routes', () => {
   //     });
   // });
 
-  describe('POST /api/v1/students', () => {
+  describe('GET /api/v1/projects', () => {
     it('should return all of the projects', done => {
       chai.request(server)
-        .post('/api/v1/projects')
+        .get('/api/v1/projects')
         .end((err, response) => {
           response.should.have.status(200);
           response.should.be.json;
           response.body.should.be.a('array');
-          response.body.length.should.equal(3);
+          response.body.length.should.equal(1);
+          done();
+        });
+    });
+  });
+
+  describe('POST /api/v1/projects', () => {
+    it('should post a project and give back an project id', done => {
+      chai.request(server)
+      // { id: 2 }
+        .post('/api/v1/projects')
+        .end((err, response) => {
+          response.should.have.status(201);
+          response.should.be.json;
+          response.body.should.be.a('object');
+          response.body.should.have.property('id');
           done();
         });
     });
