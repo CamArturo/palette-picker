@@ -4,7 +4,7 @@
   "description": "An application that will allow user to choose a color palette and save it to a server",
   "main": "view/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENVtest mocha --exit",
     "start": "DEBUG=app nodemon app.js"
   },
   "repository": {
